@@ -43,7 +43,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (healthText != null)
         {
-            healthText.text = "Health: " + health;
+            healthText.text = "Health: ";
         }
 
         if (healthSlider != null)
