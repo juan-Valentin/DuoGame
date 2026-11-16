@@ -4,13 +4,13 @@ using TMPro;
 
 public class PlayerMana : MonoBehaviour
 {
-    public int maxMana;
-    public int mana;
-    public int manaCost = 10;
-    public KeyCode castKey = KeyCode.Space;
-    public TMP_Text manaText;
-    public Slider manaSlider;
-    public Animator animator;
+    [SerializeField] private int maxMana;
+    [SerializeField] private int mana;
+    [SerializeField] private int manaCost = 10;
+    [SerializeField] private KeyCode castKey = KeyCode.Space;
+    [SerializeField] private TMP_Text manaText;
+    [SerializeField] private Slider manaSlider;
+    [SerializeField] private Animator animator;
 
     void Awake()
     {

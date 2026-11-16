@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HealthPickup : MonoBehaviour
 {
-    public int healAmount = 10;
+    [SerializeField] private int healAmount = 10;
 
     void OnTriggerEnter2D(Collider2D other) 
     {

@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
+    [SerializeField] private int maxHealth = 100;
     public int health = 100;
     public TMP_Text healthText;
     public Slider healthSlider;

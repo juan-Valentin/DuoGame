@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public PlayerHealth playerHealth;
-    public GameObject player;
-    public GameObject gameOverUI;
+    [SerializeField] private PlayerHealth playerHealth;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject gameOverUI;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,7 +23,7 @@ public class GameManager : MonoBehaviour
     {
         if (playerHealth.health <= 0)
         {
-            playerHealth.healthText.text = "Health: 0";
+            playerHealth.healthText.text = "Health";
             player.SetActive(false);
             gameOverUI.SetActive(true);
         }
