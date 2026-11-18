@@ -10,13 +10,10 @@ public class PlayerHealth : MonoBehaviour
     public TMP_Text healthText;
     public Slider healthSlider;
 
+    private bool IsDead;
+
     void Start()
     {
-        if (healthSlider != null)
-        {
-            healthSlider.maxValue = maxHealth;
-        }
-
         UpdateUI();
     }
 
@@ -27,16 +24,30 @@ public class PlayerHealth : MonoBehaviour
 
     public void Heal(int amount)
     {
+        if (IsDead) return;
+
         health = Mathf.Min(health + amount, maxHealth); // never goes above max
         UpdateUI();
     }
 
     public void TakeDamage(int amount)
     {
+        if (IsDead) return;
+
         health = Mathf.Max(0, health - amount);
+        Debug.Log("Player health: " + health);
         UpdateUI();
 
         if (health == 0) Die();
+    }
+
+    public void Kill()
+    {
+        if (IsDead) return;
+
+        health = 0;
+        UpdateUI();
+        Die();
     }
 
     void UpdateUI()
@@ -48,12 +59,16 @@ public class PlayerHealth : MonoBehaviour
 
         if (healthSlider != null)
         {
+            healthSlider.minValue = 0;
+            healthSlider.maxValue = maxHealth;
             healthSlider.value = health;
         }
     }
 
     void Die()
     {
-        Debug.Log("Player died");
+        IsDead = true;
+        Debug.Log("Player died!");
+        gameObject.SetActive(false);
     }
 }
